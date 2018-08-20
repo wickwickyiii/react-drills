@@ -8,15 +8,21 @@ import "./App.css";
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      message: ""
+    };
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(e) {
+    this.setState({ message: e.target.value })
   }
 
   render() {
     return (
       <div className="App">
-        <Input />
-        {/* <Props filter={this.filter} /> */}
-        {/* <div>{JSON.stringify(this.state.food)}</div> */}
+        <input onChange={e => this.handleChange(e)}></input>
+        <p> {this.state.message} </p>
       </div>
     );
   }
